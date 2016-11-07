@@ -3,43 +3,39 @@
     'prefix': 'ngdirective'
     'body': """
       (function() {
-          'use strict';
+        'use strict';
 
-          angular
-              .module('${1:module}')
-              .directive('${2:directive}', ${2:directive});
+        /**
+         * @ngdoc directive
+         * @name cybersponse.directive:${2:directive}
+         * @restrict: A
+         *
+         * @description
+         * This directive will take a field object and create the input the field should represent.
+         *
+         * @element ANY
+         * @param {object} parameter Description for parameter.
+         */
+        angular
+          .module('${1:module}')
+          .directive('${2:directive}', ${2:directive});
 
-          /* @ngInject */
-          function ${2:directive}() {
-              var directive = {
-                  restrict: '${3:EA}',
-                  templateUrl: '${4:templateUrl}',
-                  scope: {
-                  },
-                  link: linkFunc,
-                  controller: ${5:Controller},
-                  controllerAs: 'vm',
-                  bindToController: true
-              };
+        ${2:directive}.$inject = ['${3:dependencies}'];
 
-              return directive;
+        function ${2:directive}(${3:dependencies}) {
+          var directive = {
+            restrict: 'A',
+            templateUrl: '${4:templateUrl}',
+            scope: {},
+            link: link,
+            controller: ${5:Controller}
+          };
 
-              function linkFunc(scope, el, attr, ctrl) {
+          return directive;
 
-              }
+          function link(scope, el, attr, ctrl) {
+
           }
-
-          ${5:Controller}.$inject = ['${6:dependencies}'];
-
-          /* @ngInject */
-          function ${5:Controller}(${6:dependencies}) {
-              var vm = this;
-
-              activate();
-
-              function activate() {
-
-              }
-          }
+        }
       })();
     """
