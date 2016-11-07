@@ -2,24 +2,37 @@
   'ngController':
     'prefix': 'ngcontroller'
     'body': """
+      'use strict';
+
+      /**
+        * @ngdoc controller
+        * @name cybersponse.controller:${2:Controller}
+        *
+        * @description
+        * The `${2:Controller}` controller description.
+        *
+      **/
       (function() {
-          'use strict';
+        angular
+          .module('${1:module}')
+          .controller('${2:Controller}', ${2:Controller});
 
-          angular
-              .module('${1:module}')
-              .controller('${2:Controller}', ${2:Controller});
+        ${2:Controller}.$inject = ['${3:dependencies}'];
 
-          ${2:Controller}.$inject = ['${3:dependencies}'];
+        function ${2:Controller}(${3:dependencies}) {
+          init();
 
-          /* @ngInject */
-          function ${2:Controller}(${3:dependencies}) {
-              var vm = this;
+          /**
+           * @ngdoc method
+           * @name cybersponse.controller:${2:Controller}#init
+           * @methodOf cybersponse.controller:${2:Controller}
+           *
+           * @description
+           * Loads the initial pagedCollection.
+           **/
+          function init() {
 
-              activate();
-
-              function activate() {
-
-              }
           }
+        }
       })();
     """
