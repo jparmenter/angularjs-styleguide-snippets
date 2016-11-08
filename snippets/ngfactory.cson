@@ -2,26 +2,32 @@
   'ngFactory':
     'prefix': 'ngfactory'
     'body': """
+      'use strict';
+
+      /**
+        * @ngdoc service
+        * @name cybersponse.${2:factory}
+        *
+        * @description
+        * The `${2:factory}` controller description.
+        *
+      **/
       (function() {
-          'use strict';
+        angular
+          .module('${1:module}')
+          .factory('${2:factory}', ${2:factory});
 
-          angular
-              .module('${1:module}')
-              .factory('${2:factory}', ${2:factory});
+        ${2:factory}.$inject = ['${3:dependencies}'];
 
-          ${2:factory}.$inject = ['${3:dependencies}'];
+        function ${2:factory}(${3:dependencies}) {
+          var service = {
+              ${4:function}: ${4:function}
+          };
 
-          /* @ngInject */
-          function ${2:factory}(${3:dependencies}) {
-              var service = {
-                  ${4:function}: ${4:function}
-              };
+          return service;
 
-              return service;
-
-              function ${4:function}() {
-
-              }
+          function ${4:function}() {
           }
+        }
       })();
     """
