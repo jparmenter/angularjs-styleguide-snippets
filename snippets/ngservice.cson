@@ -2,22 +2,43 @@
   'ngService':
     'prefix': 'ngservice'
     'body': """
+      'use strict';
+
+      /**
+        * @ngdoc service
+        * @name cybersponse.${2:factory}
+        *
+        * @description
+        * The `${2:factory}` controller description.
+        *
+      **/
       (function() {
-          'use strict';
+        angular
+          .module('${1:module}')
+          .factory('${2:factory}', ${2:factory});
 
-          angular
-              .module('${1:module}')
-              .service('${2:Service}', ${2:Service});
+        ${2:factory}.$inject = ['${3:dependencies}'];
 
-          ${2:Service}.$inject = ['${3:dependencies}'];
+        function ${2:factory}(${3:dependencies}) {
+          var service = {
+              ${4:function}: ${4:function}
+          };
 
-          /* @ngInject */
-          function ${2:Service}(${3:dependencies}) {
-              this.${4:function} = ${4:function};
+          return service;
 
-              function ${4:function}() {
-
-              }
+          /**
+           * @ngdoc method
+           * @name cybersponse.${2:factory}#${4:function}
+           * @methodOf cybersponse.settingsService
+           *
+           * @description
+           * Descpription for get method within cybersponse.${2:factory}
+           *
+           * @param {String} key string representing a key in a user's settings.
+           * @returns {String}  The value of the setting or empty string if not found.
+           **/
+          function ${4:function}() {
           }
+        }
       })();
     """
